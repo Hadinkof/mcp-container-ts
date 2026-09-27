@@ -1,5 +1,6 @@
 import { zodToJsonSchema } from "zod-to-json-schema";
 import { z } from "zod";
+import { GooglePhotosTools } from "./google-photos-tools.js";
 import {
   addTodo,
   listTodos,
