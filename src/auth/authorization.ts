@@ -16,7 +16,9 @@ export enum Permission {
   UPDATE_TODOS = 'update:todos',
   DELETE_TODOS = 'delete:todos',
   LIST_TOOLS = 'list:tools',
-  CALL_TOOLS = 'call:tools'
+  CALL_TOOLS = 'call:tools',
+  READ_PHOTOS = 'read:photos',
+  MANAGE_PHOTO_SESSIONS = 'manage:photo-sessions'
 }
 
 // Role-permission mapping
@@ -27,17 +29,22 @@ const rolePermissions: Record<UserRole, Permission[]> = {
     Permission.UPDATE_TODOS,
     Permission.DELETE_TODOS,
     Permission.LIST_TOOLS,
-    Permission.CALL_TOOLS
+    Permission.CALL_TOOLS,
+    Permission.READ_PHOTOS,
+    Permission.MANAGE_PHOTO_SESSIONS
   ],
   [UserRole.USER]: [
     Permission.READ_TODOS,
     Permission.CREATE_TODOS,
     Permission.UPDATE_TODOS,
     Permission.LIST_TOOLS,
-    Permission.CALL_TOOLS
+    Permission.CALL_TOOLS,
+    Permission.READ_PHOTOS,
+    Permission.MANAGE_PHOTO_SESSIONS
   ],
   [UserRole.READONLY]: [
     Permission.READ_TODOS,
+    Permission.READ_PHOTOS,
     Permission.LIST_TOOLS
   ]
 };
@@ -48,7 +55,11 @@ const toolPermissions: Record<string, Permission[]> = {
   'list_todos': [Permission.READ_TODOS],
   'complete_todo': [Permission.UPDATE_TODOS],
   'delete_todo': [Permission.DELETE_TODOS],
-  'updateTodoText': [Permission.UPDATE_TODOS]
+  'updateTodoText': [Permission.UPDATE_TODOS],
+  'google_photos_create_picker_session': [Permission.MANAGE_PHOTO_SESSIONS],
+  'google_photos_get_picker_session': [Permission.MANAGE_PHOTO_SESSIONS],
+  'google_photos_list_selected_media': [Permission.READ_PHOTOS],
+  'google_photos_delete_picker_session': [Permission.MANAGE_PHOTO_SESSIONS]
 };
 
 export interface AuthenticatedUser {

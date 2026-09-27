@@ -52,6 +52,10 @@ export class StreamableHTTPServer {
       complete_todo: [Permission.UPDATE_TODOS],
       delete_todo: [Permission.DELETE_TODOS],
       updateTodoText: [Permission.UPDATE_TODOS],
+      google_photos_create_picker_session: [Permission.MANAGE_PHOTO_SESSIONS],
+      google_photos_get_picker_session: [Permission.MANAGE_PHOTO_SESSIONS],
+      google_photos_list_selected_media: [Permission.READ_PHOTOS],
+      google_photos_delete_picker_session: [Permission.MANAGE_PHOTO_SESSIONS],
     };
 
     return toolPermissions[toolName] || [];
